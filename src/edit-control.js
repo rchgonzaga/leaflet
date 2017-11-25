@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
-import { Map, TileLayer, Circle, FeatureGroup, GeoJSON } from 'react-leaflet';
-import { EditControlLayer } from './draw';
-import config from './config.json';
+import React, { Component } from 'react'
+import { Map, TileLayer, Circle, FeatureGroup, GeoJSON } from 'react-leaflet'
+import { EditControlLayer } from './draw'
+import config from './config.json'
 
-let polyline;
-const subs = [ 'a', 'b', 'c', 'd' ];
+let polyline
+const subs = [ 'a', 'b', 'c', 'd' ]
 
 
 function getGeoJson() {
@@ -237,13 +237,13 @@ function getGeoJson() {
 export default class EditControlExample extends Component {
 
     constructor() {
-        super();
+        super()
         this.state = {
             lat: 37.81893781173967,
             lng: -122.47867584228514,
             zoom: 13,
             open: false
-        };
+        }
     }
 
     getStyle(feature, layer) {
@@ -255,37 +255,37 @@ export default class EditControlExample extends Component {
     }
 
   _onEditPath(e) {
-    console.log('Path edited !');
+    console.log('Path edited !')
   }
 
   _onCreate(e) {
-    polyline = e.layer;
+    polyline = e.layer
     // To edit this polyline call : polyline.handler.enable()
-    console.log('Path created !');
+    console.log('Path created !')
   }
 
   _onDeleted(e) {
-    console.log('Path deleted !');
+    console.log('Path deleted !')
   }
 
   _mounted(drawControl) {
-    console.log('Component mounted !');
+    console.log('Component mounted !')
   }
 
   _onEditStart() {
-    console.log('Edit is starting !');
+    console.log('Edit is starting !')
   }
 
   _onEditStop() {
-    console.log('Edit is stopping !');
+    console.log('Edit is stopping !')
   }
 
   _onDeleteStart() {
-    console.log('Delete is starting !');
+    console.log('Delete is starting !')
   }
 
   _onDeleteStop() {
-    console.log('Delete is stopping !');
+    console.log('Delete is stopping !')
   }
 
 
@@ -293,18 +293,18 @@ export default class EditControlExample extends Component {
       const func = (e) => { 
           console.log("Click")
           console.log(feature.properties.id) 
-      };
+      }
   
       layer.on({
           click: func
-      });
+      })
   }
 
   render() {
     return (
       <Map center={[51.505, -0.09]} zoom={13} zoomControl={true}>
         <TileLayer
-          attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+          attribution='&copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           url='http://{s}.tile.osm.org/{z}/{x}/{y}.png'
           mapId={config.mapId}
           token={config.token}
@@ -335,6 +335,6 @@ export default class EditControlExample extends Component {
 
         </FeatureGroup>
       </Map>
-    );
+    )
   }
 }
